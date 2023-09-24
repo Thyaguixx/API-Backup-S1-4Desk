@@ -19,7 +19,7 @@ const theme = createTheme({
   },
 });
 
-export default function FormRegistration3Parc({ parametros }: any) {
+export default function FormRegistration3Parc({ parametros, dados }: any) {
   
   const capturaCampos = (event: any) => {
     const { name, value } = event.target
@@ -55,6 +55,7 @@ export default function FormRegistration3Parc({ parametros }: any) {
                         label="Razão social"
                         size="small"
                         onChange={capturaCampos}
+                        value={dados.RazaoSocial}
                       />
                     </Grid>
                     <Grid item xs={12} sm={6} md={6} lg={4} xl={4}>
@@ -64,6 +65,7 @@ export default function FormRegistration3Parc({ parametros }: any) {
                         label="Nome fantasia"
                         size="small"
                         onChange={capturaCampos}
+                        value={dados.NomeFantasia}
                       />
                     </Grid>
                     <Grid item xs={12} sm={6} md={6} lg={4} xl={4}>
@@ -73,6 +75,7 @@ export default function FormRegistration3Parc({ parametros }: any) {
                         label="CNPJ"
                         size="small"
                         onChange={capturaCampos}
+                        value={dados.cnpj}
                       />
                     </Grid>
                   </Grid>
@@ -84,6 +87,7 @@ export default function FormRegistration3Parc({ parametros }: any) {
                         label="Data de inicio da operação"
                         size="small"
                         onChange={capturaCampos}
+                        value={dados.DataInicioOp}
                       />
                     </Grid>
                     <Grid item xs={2} sm={2} md={6} lg={6} xl={4}>
@@ -93,6 +97,7 @@ export default function FormRegistration3Parc({ parametros }: any) {
                         label="Responsável pela empresa"
                         size="small"
                         onChange={capturaCampos}
+                        value={dados.ResponsavelEmpresa}
                       />
                     </Grid>
                     <Grid item xs={2} sm={2} md={6} lg={6} xl={4}>
@@ -102,6 +107,7 @@ export default function FormRegistration3Parc({ parametros }: any) {
                         label="Volume de coleta de óleo por mês"
                         size="small"
                         onChange={capturaCampos}
+                        value={dados.VolumeOleo}
                       />
                     </Grid>
                   </Grid>
@@ -113,6 +119,7 @@ export default function FormRegistration3Parc({ parametros }: any) {
                         label="Endereço"
                         size="small"
                         onChange={capturaCampos}
+                        value={dados.Endereco}
                       />
                     </Grid>
                     <Grid item xs={2} sm={2} md={6} lg={6} xl={1}>
@@ -122,6 +129,7 @@ export default function FormRegistration3Parc({ parametros }: any) {
                         label="Número"
                         size="small"
                         onChange={capturaCampos}
+                        value={dados.Numero}
                       />
                     </Grid>
                     <Grid item xs={2} sm={2} md={6} lg={6} xl={3}>
@@ -131,6 +139,7 @@ export default function FormRegistration3Parc({ parametros }: any) {
                         label="Bairro"
                         size="small"
                         onChange={capturaCampos}
+                        value={dados.Bairro}
                       />
                     </Grid>
                     <Grid item xs={2} sm={2} md={6} lg={6} xl={3}>
@@ -140,6 +149,7 @@ export default function FormRegistration3Parc({ parametros }: any) {
                         label="Cidade"
                         size="small"
                         onChange={capturaCampos}
+                        value={dados.Cidade}
                       />
                     </Grid>
                     <Grid item xs={2} sm={2} md={6} lg={6} xl={1}>
@@ -149,6 +159,7 @@ export default function FormRegistration3Parc({ parametros }: any) {
                         label="UF"
                         size="small"
                         onChange={capturaCampos}
+                        value={dados.uf}
                       />
                     </Grid>
                   </Grid>
@@ -160,6 +171,7 @@ export default function FormRegistration3Parc({ parametros }: any) {
                         label="Cidades que atendem"
                         size="small"
                         onChange={capturaCampos}
+                        value={dados.CidadesAtendem}
                         multiline
                       />
                     </Grid>
@@ -170,6 +182,7 @@ export default function FormRegistration3Parc({ parametros }: any) {
                         label="Principais parceiros"
                         size="small"
                         onChange={capturaCampos}
+                        value={dados.Parceiros}
                         // multiline
                       />
                     </Grid>
