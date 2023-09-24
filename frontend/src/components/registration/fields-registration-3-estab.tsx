@@ -19,11 +19,32 @@ const theme = createTheme({
 });
 
 export default function FormRegistration3Estab({ parametros, dados }: any) {
-  
+
+  const [formattedCnpj, setFormattedCnpj] = React.useState("");
+
   const capturaCampos = (event: any) => {
     const { name, value } = event.target
-    parametros({ [name]: value})
+    parametros({ [name]: value })
   }
+
+  const formatCnpj = (cnpj: string) => {
+    // Implement your CNPJ formatting logic here, e.g., adding a mask
+    // For simplicity, let's assume CNPJ has 14 digits
+    return cnpj.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, '$1.$2.$3/$4-$5');
+  };
+
+  const handleCnpjChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    const formattedValue = formatCnpj(value);
+    setFormattedCnpj(formattedValue);
+    capturaCampos({
+      target: {
+        name: "cnpj",
+        value: formattedValue.replace(/\D/g, ""), // Remove non-digit characters
+      },
+    });
+  };
+
 
   return (
     <ThemeProvider theme={theme}>
@@ -73,8 +94,8 @@ export default function FormRegistration3Estab({ parametros, dados }: any) {
                         name="cnpj"
                         label="CNPJ"
                         size="small"
-                        onChange={capturaCampos}
-                        value={dados.cnpj}
+                        value={formattedCnpj}
+                        onChange={handleCnpjChange}
                       />
                     </Grid>
                   </Grid>
@@ -115,7 +136,7 @@ export default function FormRegistration3Estab({ parametros, dados }: any) {
                       <TextField
                         fullWidth
                         name="Endereco"
-                        label="Endereço"
+                        label="Logradouro"
                         size="small"
                         onChange={capturaCampos}
                         value={dados.Endereco}
@@ -159,6 +180,7 @@ export default function FormRegistration3Estab({ parametros, dados }: any) {
                         size="small"
                         onChange={capturaCampos}
                         value={dados.uf}
+                        inputProps={{ maxLength: 2 }} // Limita para dois caracteres
                       />
                     </Grid>
                   </Grid>
@@ -186,7 +208,7 @@ export default function FormRegistration3Estab({ parametros, dados }: any) {
                     </Grid>
                   </Grid>
                 </Grid>
-                </Box>
+              </Box>
             </Grid>
           </Box>
         </Container>
